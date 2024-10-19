@@ -1,0 +1,63 @@
+import java.util.Scanner; //Я не разобрался как полноценно закидывать вам на проверку дз через Гит, пока буду практиковать такой способ. Надеюсь разберетесь, позже будет лучше
+
+public class Main {
+    public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Выберите тип конвертации:");
+                System.out.println("1. Конвертация массы");
+                System.out.println("2. Конвертация валюты");
+                System.out.println("3. Конвертация температуры");
+
+                int choice = scanner.nextInt();
+
+                switch (choice) {
+                    case 1:
+                        massConverter(scanner);
+                        break;
+                    case 2:
+                        currencyConverter(scanner);
+                        break;
+                    case 3:
+                        temperatureConverter(scanner);
+                        break;
+                    default:
+                        System.out.println("Неверный выбор. Попробуйте снова.");
+                }
+            }
+
+            private static void massConverter(Scanner scanner) {
+                System.out.print("Введите массу в килограммах: ");
+                double kg = scanner.nextDouble();
+                double pounds = kg * 2.20462;
+                System.out.printf("%.2f кг = %.2f фунтов%n", kg, pounds);
+
+                System.out.print("Введите массу в фунтах: ");
+                double lbs = scanner.nextDouble();
+                double kilograms = lbs / 2.20462;
+                System.out.printf("%.2f фунтов = %.2f кг%n", lbs, kilograms);
+            }
+
+            private static void currencyConverter(Scanner scanner) {
+                System.out.print("Введите сумму в рублях: ");
+                double rubles = scanner.nextDouble();
+                double dollars = rubles / 100;
+                System.out.printf("%.2f рублей = %.2f долларов%n", rubles, dollars);
+
+                System.out.print("Введите сумму в долларах: ");
+                double usd = scanner.nextDouble();
+                double roubles = usd * 100;
+                System.out.printf("%.2f долларов = %.2f рублей%n", usd, roubles);
+            }
+
+            private static void temperatureConverter(Scanner scanner) {
+                System.out.print("Введите температуру в Цельсиях: ");
+                double celsius = scanner.nextDouble();
+                double fahrenheit = (celsius * 9/5) + 32;
+                System.out.printf("%.2f °C = %.2f °F%n", celsius, fahrenheit);
+
+                System.out.print("Введите температуру в Фаренгейтах: ");
+                double fahr = scanner.nextDouble();
+                double cels = (fahr - 32) * 5/9;
+                System.out.printf("%.2f °F = %.2f °C%n", fahr, cels);
+            }
+        }
